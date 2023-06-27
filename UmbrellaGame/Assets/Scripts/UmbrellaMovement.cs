@@ -18,12 +18,12 @@ public class UmbrellaMovement : MonoBehaviour
             //gameObject.transform.position
             transform.Translate(0, -openedSpeed * Time.deltaTime, 0);
         }
-        if (movingLeft && !movingRight && transform.position.x > -2.3f)
+        if (movingLeft && !movingRight && transform.position.x > -1.9f)
         {
             transform.Translate(-sidewaysMovSpeed * Time.deltaTime, 0, 0);
         }
 
-        if (movingRight && !movingLeft && transform.position.x < 2.3f)
+        if (movingRight && !movingLeft && transform.position.x < 1.9f)
         {
             transform.Translate(sidewaysMovSpeed * Time.deltaTime, 0, 0);
         }
