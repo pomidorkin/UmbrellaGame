@@ -12,4 +12,9 @@ public class CameraFollowScript : MonoBehaviour
     {
         transform.position = new Vector3(0, umbrella.transform.position.y - offset, -10);
     }
+
+    public void ResetCameraPos()
+    {
+        transform.position = new Vector3(0, umbrella.transform.position.y - offset, -10);
+    }
 }

@@ -8,20 +8,34 @@ public class UmbrellaController : MonoBehaviour
     [SerializeField] UmbrellaMovement umbrellaMovement;
     private Rigidbody2D rigidbody;
     //[SerializeField] bool test = false;
-    [SerializeField] Button leftButton;
+    [SerializeField] GameResetter gameResetter;
+    //[SerializeField] Button leftButton;
     [SerializeField] GameObject openedUmbrella;
     [SerializeField] GameObject closedUmbrella;
     [SerializeField] Animator animator;
+    private Vector2 initialPos;
+
+    private void OnEnable()
+    {
+        gameResetter.OnGameReset += ResetUmbrellaPosition;
+    }
+
+    private void OnDisable()
+    {
+        gameResetter.OnGameReset -= ResetUmbrellaPosition;
+    }
     void Start()
     {
+        initialPos = gameObject.transform.position;
         rigidbody = GetComponent<Rigidbody2D>();
     }
     public void ToggleUmbrellaClosed()
     {
         if (umbrellaMovement.opened)
         {
-            rigidbody.velocity = new Vector2(0,0);
-            rigidbody.simulated = true;
+            //rigidbody.velocity = new Vector2(0,0);
+            //rigidbody.simulated = true;
+            rigidbody.gravityScale = 1f;
             openedUmbrella.SetActive(false);
             closedUmbrella.SetActive(true);
             animator.Play("ClosingAnim");
@@ -30,18 +44,28 @@ public class UmbrellaController : MonoBehaviour
         {
             openedUmbrella.SetActive(true);
             closedUmbrella.SetActive(false);
-            rigidbody.simulated = false;
+            //rigidbody.simulated = false;
+            rigidbody.velocity = new Vector2(0, 0);
+            rigidbody.gravityScale = 0f;
             animator.Play("OpeningAnim");
         }
         umbrellaMovement.opened = !umbrellaMovement.opened;
     }
 
-    /*private void Update()
+    public void ResetUmbrellaPosition()
     {
-        if (test)
-        {
-            test = false;
-            ToggleUmbrellaClosed();
-        }
-    }*/
+        gameObject.transform.position = initialPos;
+        rigidbody.velocity = new Vector2(0, 0);
+        rigidbody.gravityScale = 0f;
+        animator.Play("OpeningAnim");
+        umbrellaMovement.opened = true;
+        openedUmbrella.SetActive(true);
+        closedUmbrella.SetActive(false);
+    }
+
+    public void DisableMovement()
+    {
+        rigidbody.velocity = new Vector2(0, 0);
+        rigidbody.gravityScale = 0f;
+    }
 }

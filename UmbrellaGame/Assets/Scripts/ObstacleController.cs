@@ -12,6 +12,41 @@ public class ObstacleController : MonoBehaviour
     private float obstacleOffset = 1.4f;
     private float sidesOffset = 0.2f;
     private int lastScore = 0;
+    // Initil Data for Resetting
+    [SerializeField] GameResetter gameResetter;
+    private Vector2 initialObstaclePos;
+    private Vector2 initialLeftPlatforPos;
+    private Vector2 initialRightPlatforPos;
+
+    // Obstacle Types
+    [SerializeField] GameObject regularObstacle;
+    [SerializeField] GameObject movingObstacle;
+    [SerializeField] GameObject closingObstacle;
+    private void OnEnable()
+    {
+        gameResetter.OnGameReset += ResetObstacle;
+    }
+
+    private void OnDisable()
+    {
+        gameResetter.OnGameReset -= ResetObstacle;
+    }
+
+    private void ResetObstacle()
+    {
+        gameObject.transform.position = initialObstaclePos;
+        leftPlatform.transform.position = initialLeftPlatforPos;
+        rightPlatform.transform.position = initialRightPlatforPos;
+        obstacleOffset = 1.4f;
+        lastScore = 0;
+    }
+
+    private void Start()
+    {
+        initialObstaclePos = gameObject.transform.position;
+        initialLeftPlatforPos = leftPlatform.transform.position;
+        initialRightPlatforPos = rightPlatform.transform.position;
+    }
     void Update()
     {
         if (transform.position.y > (umbrella.transform.position.y + 1.7f))
@@ -24,13 +59,38 @@ public class ObstacleController : MonoBehaviour
     {
         float rnd = UnityEngine.Random.Range(-obstacleOffset, obstacleOffset);
         transform.position = new Vector3(rnd, transform.position.y - 12f, 0);
-        if ((lastScore + 100) < scoreCounter.score)
+        if ((lastScore + 20) < scoreCounter.score)
         {
             lastScore = scoreCounter.score;
             rightPlatform.transform.position = new Vector2(rightPlatform.transform.position.x - sidesOffset, rightPlatform.transform.position.y);
             leftPlatform.transform.position = new Vector2(leftPlatform.transform.position.x + sidesOffset, leftPlatform.transform.position.y);
             obstacleOffset += sidesOffset;
             Debug.Log("obstacleOffset: " + obstacleOffset);
+        }
+
+        if (scoreCounter.score > 60) // Balance Value
+        {
+            int rand = UnityEngine.Random.Range(1, 10);
+            if (rand == 1)
+            {
+                transform.position = new Vector2(0, transform.position.y);
+                regularObstacle.SetActive(false);
+                closingObstacle.SetActive(false);
+                movingObstacle.SetActive(true);
+            }
+            else if (rand == 2)
+            {
+                transform.position = new Vector2(0, transform.position.y);
+                regularObstacle.SetActive(false);
+                closingObstacle.SetActive(true);
+                movingObstacle.SetActive(false);
+            }
+            else
+            {
+                regularObstacle.SetActive(true);
+                closingObstacle.SetActive(false);
+                movingObstacle.SetActive(false);
+            }
         }
     }
 }
