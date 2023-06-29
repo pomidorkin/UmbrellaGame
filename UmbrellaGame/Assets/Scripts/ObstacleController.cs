@@ -70,7 +70,7 @@ public class ObstacleController : MonoBehaviour
 
         if (scoreCounter.score > 60) // Balance Value
         {
-            int rand = UnityEngine.Random.Range(1, 10);
+            int rand = UnityEngine.Random.Range(1, 11);
             if (rand == 1)
             {
                 transform.position = new Vector2(0, transform.position.y);

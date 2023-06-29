@@ -13,6 +13,7 @@ public class UmbrellaController : MonoBehaviour
     [SerializeField] GameObject openedUmbrella;
     [SerializeField] GameObject closedUmbrella;
     [SerializeField] Animator animator;
+    [SerializeField] PlaySoundOnStart openingSound;
     private Vector2 initialPos;
 
     private void OnEnable()
@@ -48,6 +49,7 @@ public class UmbrellaController : MonoBehaviour
             rigidbody.velocity = new Vector2(0, 0);
             rigidbody.gravityScale = 0f;
             animator.Play("OpeningAnim");
+            openingSound.PlaySound();
         }
         umbrellaMovement.opened = !umbrellaMovement.opened;
     }
