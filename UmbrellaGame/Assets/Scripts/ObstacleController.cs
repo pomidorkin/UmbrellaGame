@@ -22,6 +22,9 @@ public class ObstacleController : MonoBehaviour
     [SerializeField] GameObject regularObstacle;
     [SerializeField] GameObject movingObstacle;
     [SerializeField] GameObject closingObstacle;
+
+    // PowerUp variables
+    [SerializeField] GameObject powerUpUnit;
     private void OnEnable()
     {
         gameResetter.OnGameReset += ResetObstacle;
@@ -90,6 +93,15 @@ public class ObstacleController : MonoBehaviour
                 regularObstacle.SetActive(true);
                 closingObstacle.SetActive(false);
                 movingObstacle.SetActive(false);
+            }
+        }
+
+        if (scoreCounter.score > 0) // TODO: Set a score value after which powerups will spawn
+        {
+            int rnd2 = UnityEngine.Random.Range(1,21); // TODO: PowerUp spawn chance
+            if (rnd2 == 1)
+            {
+                powerUpUnit.SetActive(true);
             }
         }
     }

@@ -51,7 +51,7 @@ public class UmbrellaMovement : MonoBehaviour
 
             //Sideways movement
             // Buttons contoller
-            /*if (movingLeft && !movingRight && transform.position.x > -1.9f)
+            if (movingLeft && !movingRight && transform.position.x > -1.9f)
             {
                 transform.Translate(-sidewaysMovSpeed * Time.deltaTime, 0, 0);
             }
@@ -59,11 +59,11 @@ public class UmbrellaMovement : MonoBehaviour
             if (movingRight && !movingLeft && transform.position.x < 1.9f)
             {
                 transform.Translate(sidewaysMovSpeed * Time.deltaTime, 0, 0);
-            }*/
+            }
 
             //Gyroscope controller
-            dirX = Input.acceleration.x * gyroMoveSpeed;
-            transform.Translate(Mathf.Clamp(dirX * Time.deltaTime, -5, 5), 0, 0); // TODO: chose correct clamp values. Current values are random
+            //dirX = Input.acceleration.x * gyroMoveSpeed;
+            //transform.Translate(Mathf.Clamp(dirX * Time.deltaTime, -5, 5), 0, 0); // TODO: chose correct clamp values. Current values are random
         }
     }
 
