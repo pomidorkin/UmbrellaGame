@@ -11,4 +11,5 @@ public class SavingData
     public bool disableAddsPurchased = false;
     public float soundsVolume = 1f;
     public float musicVolume = 1f;
+    public int timesDied = 0;
 }

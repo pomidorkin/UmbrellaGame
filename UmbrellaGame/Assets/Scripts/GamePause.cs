@@ -11,6 +11,7 @@ public class GamePause : MonoBehaviour
     [SerializeField] UmbrellaController umbrellaController;
     [SerializeField] Button[] buttons;
     [SerializeField] ScoreCounter scoreCounter;
+    [SerializeField] InterAd interAd;
     public static bool gameIsPaused = false;
 
     public void Resume()
@@ -29,11 +30,22 @@ public class GamePause : MonoBehaviour
     {
         foreach (Button button in buttons)
         {
-            button.enabled = false;
+            button.interactable = false;
         }
         umbrellaMovement.DisableMovement();
         umbrellaController.DisableMovement();
         StartCoroutine(OpenGameLostMenuCoroutine());
+    }
+
+    public void CloseGameLostMenu()
+    {
+        foreach (Button button in buttons)
+        {
+            button.interactable = true;
+        }
+        umbrellaMovement.EnableMovement();
+        umbrellaController.EnableMovement();
+        gameLostMenu.SetActive(false);
     }
 
     private IEnumerator OpenGameLostMenuCoroutine()
@@ -42,6 +54,10 @@ public class GamePause : MonoBehaviour
         PauseGame();
         gameLostMenu.SetActive(true);
         scoreCounter.UpdateHighScore();
+        if (!SaveManager.Instance.State.disableAddsPurchased)
+        {
+            interAd.LoadAd();
+        }
     }
 
     public void HideAllMenus()
@@ -51,7 +67,12 @@ public class GamePause : MonoBehaviour
         gameLostMenu.SetActive(false);
         foreach (Button button in buttons)
         {
-            button.enabled = true;
+            button.interactable = true;
         }
+    }
+
+    public void PlayInterAd()
+    {
+        interAd.ShowAd();
     }
 }

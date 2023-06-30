@@ -70,4 +70,14 @@ public class UmbrellaController : MonoBehaviour
         rigidbody.velocity = new Vector2(0, 0);
         rigidbody.gravityScale = 0f;
     }
+
+    public void EnableMovement()
+    {
+        rigidbody.velocity = new Vector2(0, 0);
+        rigidbody.gravityScale = 0f;
+        animator.Play("OpeningAnim");
+        umbrellaMovement.opened = true;
+        openedUmbrella.SetActive(true);
+        closedUmbrella.SetActive(false);
+    }
 }

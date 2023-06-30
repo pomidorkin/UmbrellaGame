@@ -13,6 +13,14 @@ public class UmbrellaMovement : MonoBehaviour
     private bool movingLeft = false;
     private bool movingRight = false;
     public bool canMove = true;
+
+
+
+    // Accelerometer variables
+    float dirX;
+    [SerializeField] float gyroMoveSpeed = 5f;
+    [SerializeField] Rigidbody2D rb;
+
     private void OnEnable()
     {
         gameResetter.OnGameReset += ResetMovement;
@@ -34,12 +42,16 @@ public class UmbrellaMovement : MonoBehaviour
     {
         if (canMove)
         {
+            // Downward speed
             if (opened)
             {
                 //gameObject.transform.position
                 transform.Translate(0, -openedSpeed * Time.deltaTime, 0);
             }
-            if (movingLeft && !movingRight && transform.position.x > -1.9f)
+
+            //Sideways movement
+            // Buttons contoller
+            /*if (movingLeft && !movingRight && transform.position.x > -1.9f)
             {
                 transform.Translate(-sidewaysMovSpeed * Time.deltaTime, 0, 0);
             }
@@ -47,13 +59,22 @@ public class UmbrellaMovement : MonoBehaviour
             if (movingRight && !movingLeft && transform.position.x < 1.9f)
             {
                 transform.Translate(sidewaysMovSpeed * Time.deltaTime, 0, 0);
-            }
+            }*/
+
+            //Gyroscope controller
+            dirX = Input.acceleration.x * gyroMoveSpeed;
+            transform.Translate(Mathf.Clamp(dirX * Time.deltaTime, -5, 5), 0, 0); // TODO: chose correct clamp values. Current values are random
         }
     }
 
     public void DisableMovement()
     {
         canMove = false;
+    }
+
+    public void EnableMovement()
+    {
+        canMove = true;
     }
 
     public void MoveLeft()

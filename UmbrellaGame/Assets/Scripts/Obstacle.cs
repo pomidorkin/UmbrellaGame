@@ -12,5 +12,17 @@ public class Obstacle : MonoBehaviour
             pauseController.OpenGameLostMenu();
             Debug.Log("Game Lost!");
         }
+        if (!SaveManager.Instance.State.disableAddsPurchased)
+        {
+            SaveManager.Instance.State.timesDied++;
+
+            if (SaveManager.Instance.State.timesDied >= 5)
+            {
+                SaveManager.Instance.State.timesDied = 0;
+                pauseController.PlayInterAd();
+            }
+
+            SaveManager.Instance.Save();
+        }
     }
 }
