@@ -8,6 +8,7 @@ public class PowerUpController : MonoBehaviour
     [SerializeField] BoxCollider2D[] umbrellaColliders;
     private bool powerupIsActive = false;
     [SerializeField] PlayPowerUpFX powerUpSoundFX;
+    [SerializeField] GameObject bubbleSprite;
 
     public void ActivateBubble()
     {
@@ -15,6 +16,7 @@ public class PowerUpController : MonoBehaviour
         {
             // TODO: Play pick up audio effect
             // Work with sprites
+            bubbleSprite.SetActive(true);
             foreach (BoxCollider2D collider in umbrellaColliders)
             {
                 collider.enabled = false;
@@ -26,12 +28,13 @@ public class PowerUpController : MonoBehaviour
 
     private IEnumerator EnableCollidersCoroutine()
     {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(5f);
         foreach (BoxCollider2D collider in umbrellaColliders)
         {
             collider.enabled = true;
         }
         powerupIsActive = false;
+        bubbleSprite.SetActive(false);
     }
 
     public void ActivateTimeSlower()

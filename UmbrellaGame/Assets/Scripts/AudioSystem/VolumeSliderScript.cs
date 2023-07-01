@@ -8,6 +8,12 @@ public class VolumeSliderScript : MonoBehaviour
     [SerializeField] private Slider _effectsVolumeSlider;
     [SerializeField] private Slider _musicVolumeSlider;
 
+    // Icons
+    [SerializeField] GameObject musicMuteIcon;
+    [SerializeField] GameObject musicLoudIcon;
+    [SerializeField] GameObject effectsMuteIcon;
+    [SerializeField] GameObject effectsLoudIcon;
+
     private void Start()
     {
         SoundManager.Instance.ChangeEffectsVolume(_effectsVolumeSlider.value);
@@ -23,7 +29,13 @@ public class VolumeSliderScript : MonoBehaviour
         SoundManager.Instance.ChangeEffectsVolume(_effectsVolumeSlider.value);
         if (_effectsVolumeSlider.value <= 0)
         {
-            // Change icon to mute
+            effectsMuteIcon.SetActive(true);
+            effectsLoudIcon.SetActive(false);
+        }
+        else
+        {
+            effectsMuteIcon.SetActive(false);
+            effectsLoudIcon.SetActive(true);
         }
     }
 
@@ -32,7 +44,13 @@ public class VolumeSliderScript : MonoBehaviour
         SoundManager.Instance.ChangeMusicVolume(_musicVolumeSlider.value);
         if (_musicVolumeSlider.value <= 0)
         {
-            // Change icon to mute
+            musicMuteIcon.SetActive(true);
+            musicLoudIcon.SetActive(false);
+        }
+        else
+        {
+            musicMuteIcon.SetActive(false);
+            musicLoudIcon.SetActive(true);
         }
     }
 }
