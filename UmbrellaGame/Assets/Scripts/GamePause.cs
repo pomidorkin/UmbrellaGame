@@ -13,6 +13,7 @@ public class GamePause : MonoBehaviour
     [SerializeField] ScoreCounter scoreCounter;
     [SerializeField] InterAd interAd;
     public static bool gameIsPaused = false;
+    private GameObject gameLostObstacle;
 
     public void Resume()
     {
@@ -75,4 +76,15 @@ public class GamePause : MonoBehaviour
     {
         interAd.ShowAd();
     }
+
+    public void SetGameLostObstacle(GameObject gameLostObstacle)
+    {
+        this.gameLostObstacle = gameLostObstacle;
+    }
+
+    public void DisableGameLostObstacle()
+    {
+        gameLostObstacle.SetActive(false);
+    }
+
 }

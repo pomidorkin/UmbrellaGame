@@ -229,6 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseController: {fileID: 259375402}
+  parentObstacle: {fileID: 460064048}
 --- !u!61 &10599097
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -434,6 +435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseController: {fileID: 259375402}
+  parentObstacle: {fileID: 1792436830}
 --- !u!61 &105206250
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -657,6 +659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseController: {fileID: 259375402}
+  parentObstacle: {fileID: 1222333625}
 --- !u!61 &129557735
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1107,6 +1110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseController: {fileID: 259375402}
+  parentObstacle: {fileID: 412063906}
 --- !u!61 &170700087
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1717,6 +1721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseController: {fileID: 259375402}
+  parentObstacle: {fileID: 580786031}
 --- !u!61 &242791730
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2189,6 +2194,7 @@ RectTransform:
   - {fileID: 484363682}
   - {fileID: 1635705926}
   - {fileID: 1204191594}
+  - {fileID: 1160233308}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2257,6 +2263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseController: {fileID: 259375402}
+  parentObstacle: {fileID: 1642047376}
 --- !u!61 &348148009
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3114,6 +3121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseController: {fileID: 259375402}
+  parentObstacle: {fileID: 1554873583}
 --- !u!61 &441238056
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3455,6 +3463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseController: {fileID: 259375402}
+  parentObstacle: {fileID: 1222333625}
 --- !u!61 &468288174
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3718,6 +3727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseController: {fileID: 259375402}
+  parentObstacle: {fileID: 411264695}
 --- !u!61 &501481964
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8795,6 +8805,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 109792599}
+  - {fileID: 908528408}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8909,6 +8920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseController: {fileID: 259375402}
+  parentObstacle: {fileID: 1926775661}
 --- !u!61 &539958636
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9178,6 +9190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseController: {fileID: 259375402}
+  parentObstacle: {fileID: 984529266}
 --- !u!1 &611845202
 GameObject:
   m_ObjectHideFlags: 0
@@ -9616,6 +9629,111 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 668573392}
   m_CullTransparentMesh: 1
+--- !u!1001 &703638064
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 335598752}
+    m_Modifications:
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 942
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 342
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_Name
+      value: Fixed Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: snapY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: axisOptions
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
 --- !u!1 &723512859
 GameObject:
   m_ObjectHideFlags: 0
@@ -9676,6 +9794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseController: {fileID: 259375402}
+  parentObstacle: {fileID: 644253124}
 --- !u!61 &723512863
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10031,6 +10150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseController: {fileID: 259375402}
+  parentObstacle: {fileID: 599591865}
 --- !u!61 &760944166
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10419,14 +10539,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 908528407}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.94, y: 6.12, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.94, y: 6.12, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 506837383}
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 519420032}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &917506288
 GameObject:
@@ -11312,6 +11432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseController: {fileID: 259375402}
+  parentObstacle: {fileID: 460064048}
 --- !u!61 &1131447406
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11769,6 +11890,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1159395556}
   m_CullTransparentMesh: 1
+--- !u!224 &1160233308 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+  m_PrefabInstance: {fileID: 703638064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1160233309 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+  m_PrefabInstance: {fileID: 703638064}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1175696241
 GameObject:
   m_ObjectHideFlags: 0
@@ -11865,6 +12002,7 @@ GameObject:
   - component: {fileID: 1184085781}
   - component: {fileID: 1184085780}
   - component: {fileID: 1184085779}
+  - component: {fileID: 1184085782}
   m_Layer: 0
   m_Name: PowerUp (1)
   m_TagString: Untagged
@@ -11941,6 +12079,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &1184085782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184085777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 274fefba72d1b5545985832e390cc1a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1189652594
 GameObject:
   m_ObjectHideFlags: 0
@@ -12712,6 +12862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseController: {fileID: 259375402}
+  parentObstacle: {fileID: 1554873583}
 --- !u!61 &1316456516
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13091,6 +13242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseController: {fileID: 259375402}
+  parentObstacle: {fileID: 599591865}
 --- !u!61 &1375382609
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13479,6 +13631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseController: {fileID: 259375402}
+  parentObstacle: {fileID: 984529266}
 --- !u!1 &1418412027
 GameObject:
   m_ObjectHideFlags: 0
@@ -13969,6 +14122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseController: {fileID: 259375402}
+  parentObstacle: {fileID: 412063906}
 --- !u!61 &1499155498
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14059,6 +14213,7 @@ GameObject:
   - component: {fileID: 1508245417}
   - component: {fileID: 1508245416}
   - component: {fileID: 1508245415}
+  - component: {fileID: 1508245418}
   m_Layer: 0
   m_Name: PowerUp
   m_TagString: Untagged
@@ -14135,6 +14290,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &1508245418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508245413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 274fefba72d1b5545985832e390cc1a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1528886191
 GameObject:
   m_ObjectHideFlags: 0
@@ -14327,6 +14494,8 @@ MonoBehaviour:
   canMove: 1
   openedMovementClamp: 1.9
   closedMovementClamp: 2.6
+  joystickMoveSpeed: 2
+  joystick: {fileID: 1160233309}
   gyroMoveSpeed: 10
 --- !u!114 &1530587137
 MonoBehaviour:
@@ -14692,6 +14861,7 @@ GameObject:
   - component: {fileID: 1599028200}
   - component: {fileID: 1599028199}
   - component: {fileID: 1599028198}
+  - component: {fileID: 1599028201}
   m_Layer: 0
   m_Name: PowerUp (3)
   m_TagString: Untagged
@@ -14768,6 +14938,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &1599028201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599028196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 274fefba72d1b5545985832e390cc1a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1617371643
 GameObject:
   m_ObjectHideFlags: 0
@@ -17034,6 +17216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseController: {fileID: 259375402}
+  parentObstacle: {fileID: 1792436830}
 --- !u!61 &1768890668
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17242,6 +17425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseController: {fileID: 259375402}
+  parentObstacle: {fileID: 1926775661}
 --- !u!61 &1798636777
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18386,6 +18570,7 @@ GameObject:
   - component: {fileID: 2117196891}
   - component: {fileID: 2117196890}
   - component: {fileID: 2117196889}
+  - component: {fileID: 2117196892}
   m_Layer: 0
   m_Name: PowerUp (2)
   m_TagString: Untagged
@@ -18462,6 +18647,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &2117196892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117196887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 274fefba72d1b5545985832e390cc1a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2123434755
 GameObject:
   m_ObjectHideFlags: 0

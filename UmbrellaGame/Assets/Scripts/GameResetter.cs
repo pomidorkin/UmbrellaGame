@@ -27,6 +27,7 @@ public class GameResetter : MonoBehaviour
         {
             collider.enabled = false;
         }
+        gameMenu.DisableGameLostObstacle();
         pauseController.Resume();
         pauseController.CloseGameLostMenu();
         StartCoroutine(EnableCollidersCoroutine());

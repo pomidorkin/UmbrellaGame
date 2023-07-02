@@ -17,7 +17,7 @@ public class ObstacleController : MonoBehaviour
     private Vector2 initialObstaclePos;
     private Vector2 initialLeftPlatforPos;
     private Vector2 initialRightPlatforPos;
-    private float maxHoleSize = 3.23f;
+    private float maxHoleSize = 3.3f;
 
     // Obstacle Types
     [SerializeField] GameObject regularObstacle;
@@ -67,7 +67,6 @@ public class ObstacleController : MonoBehaviour
         transform.position = new Vector3(rnd, transform.localPosition.y - 20f, 0);
         if ((lastScore + 20) < scoreCounter.score)
         {
-            // Max hole valuó 3.23
             lastScore = scoreCounter.score;
             Debug.Log("rightPlatform.transform.position.x: " + rightPlatform.transform.localPosition.x + ", maxHoleSize: " + maxHoleSize);
             if ((rightPlatform.transform.localPosition.x - sidesOffset) > maxHoleSize)
