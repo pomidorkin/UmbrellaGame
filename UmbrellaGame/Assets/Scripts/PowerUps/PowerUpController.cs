@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class PowerUpController : MonoBehaviour
 {
     [SerializeField] BoxCollider2D[] umbrellaColliders;
-    private bool powerupIsActive = false;
+    public bool powerupIsActive = false;
+    public bool powerUpIsSpawned = false;
     [SerializeField] PlayPowerUpFX powerUpSoundFX;
     [SerializeField] GameObject bubbleSprite;
 

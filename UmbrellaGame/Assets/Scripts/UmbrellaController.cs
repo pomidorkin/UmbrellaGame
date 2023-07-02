@@ -14,6 +14,7 @@ public class UmbrellaController : MonoBehaviour
     [SerializeField] GameObject closedUmbrella;
     [SerializeField] Animator animator;
     [SerializeField] PlaySoundOnStart openingSound;
+    [SerializeField] ColliderEnabler colliderEnabler;
     private Vector2 initialPos;
 
     private void OnEnable()
@@ -34,21 +35,23 @@ public class UmbrellaController : MonoBehaviour
     {
         if (umbrellaMovement.opened)
         {
-            //rigidbody.velocity = new Vector2(0,0);
-            //rigidbody.simulated = true;
-            rigidbody.gravityScale = 1f;
+            //rigidbody.gravityScale = 1f; // Commented out for testing
+            rigidbody.drag = 0f;
             openedUmbrella.SetActive(false);
             closedUmbrella.SetActive(true);
             animator.Play("ClosingAnim");
+            umbrellaMovement.ChangeClampValues(false);
         }
         else
         {
             openedUmbrella.SetActive(true);
             closedUmbrella.SetActive(false);
-            //rigidbody.simulated = false;
+            colliderEnabler.DisableCollider();
             rigidbody.velocity = new Vector2(0, 0);
-            rigidbody.gravityScale = 0f;
+            //rigidbody.gravityScale = 0f; // Commented out for testing
+            rigidbody.drag = 9.8f;
             animator.Play("OpeningAnim");
+            umbrellaMovement.ChangeClampValues(true);
             openingSound.PlaySound();
         }
         umbrellaMovement.opened = !umbrellaMovement.opened;
@@ -58,7 +61,8 @@ public class UmbrellaController : MonoBehaviour
     {
         gameObject.transform.position = initialPos;
         rigidbody.velocity = new Vector2(0, 0);
-        rigidbody.gravityScale = 0f;
+        rigidbody.drag = 9.8f;
+        rigidbody.gravityScale = 1f;
         animator.Play("OpeningAnim");
         umbrellaMovement.opened = true;
         openedUmbrella.SetActive(true);
@@ -74,7 +78,9 @@ public class UmbrellaController : MonoBehaviour
     public void EnableMovement()
     {
         rigidbody.velocity = new Vector2(0, 0);
-        rigidbody.gravityScale = 0f;
+        //rigidbody.gravityScale = 0f;
+        rigidbody.drag = 9.8f;
+        rigidbody.gravityScale = 1f;
         animator.Play("OpeningAnim");
         umbrellaMovement.opened = true;
         openedUmbrella.SetActive(true);

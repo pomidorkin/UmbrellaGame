@@ -17,6 +17,7 @@ public class ObstacleController : MonoBehaviour
     private Vector2 initialObstaclePos;
     private Vector2 initialLeftPlatforPos;
     private Vector2 initialRightPlatforPos;
+    private float maxHoleSize = 3.23f;
 
     // Obstacle Types
     [SerializeField] GameObject regularObstacle;
@@ -24,7 +25,8 @@ public class ObstacleController : MonoBehaviour
     [SerializeField] GameObject closingObstacle;
 
     // PowerUp variables
-    [SerializeField] GameObject powerUpUnit;
+    [SerializeField] PowerUpUnit powerUpUnit;
+    [SerializeField] PowerUpController powerUpController;
     private void OnEnable()
     {
         gameResetter.OnGameReset += ResetObstacle;
@@ -37,9 +39,9 @@ public class ObstacleController : MonoBehaviour
 
     private void ResetObstacle()
     {
-        gameObject.transform.position = initialObstaclePos;
-        leftPlatform.transform.position = initialLeftPlatforPos;
-        rightPlatform.transform.position = initialRightPlatforPos;
+        gameObject.transform.localPosition = initialObstaclePos;
+        leftPlatform.transform.localPosition = initialLeftPlatforPos;
+        rightPlatform.transform.localPosition = initialRightPlatforPos;
         obstacleOffset = 1.4f;
         lastScore = 0;
     }
@@ -60,16 +62,23 @@ public class ObstacleController : MonoBehaviour
 
     private void ObstacleRearrange()
     {
-        float rnd = UnityEngine.Random.Range(-obstacleOffset, obstacleOffset);
-        transform.position = new Vector3(rnd, transform.position.y - 12f, 0);
+        // Obstacle position change & hole decreasing logic
+        float rnd = UnityEngine.Random.Range(-obstacleOffset + 0.7f, obstacleOffset - 0.7f);
+        transform.position = new Vector3(rnd, transform.localPosition.y - 20f, 0);
         if ((lastScore + 20) < scoreCounter.score)
         {
+            // Max hole valuó 3.23
             lastScore = scoreCounter.score;
-            rightPlatform.transform.position = new Vector2(rightPlatform.transform.position.x - sidesOffset, rightPlatform.transform.position.y);
-            leftPlatform.transform.position = new Vector2(leftPlatform.transform.position.x + sidesOffset, leftPlatform.transform.position.y);
-            obstacleOffset += sidesOffset;
-            Debug.Log("obstacleOffset: " + obstacleOffset);
+            Debug.Log("rightPlatform.transform.position.x: " + rightPlatform.transform.localPosition.x + ", maxHoleSize: " + maxHoleSize);
+            if ((rightPlatform.transform.localPosition.x - sidesOffset) > maxHoleSize)
+            {
+                rightPlatform.transform.localPosition = new Vector2(rightPlatform.transform.localPosition.x - sidesOffset, rightPlatform.transform.localPosition.y);
+                leftPlatform.transform.localPosition = new Vector2(leftPlatform.transform.localPosition.x + sidesOffset, leftPlatform.transform.localPosition.y);
+                obstacleOffset += sidesOffset;
+            }
         }
+
+        // Obstacle type choosing logic
 
         if (scoreCounter.score > 60) // Balance Value
         {
@@ -96,12 +105,24 @@ public class ObstacleController : MonoBehaviour
             }
         }
 
-        if (scoreCounter.score > 0) // TODO: Set a score value after which powerups will spawn
+        // Power-Up spawning & despawning logic
+        Debug.Log("powerUpController.powerupIsActive: " + powerUpController.powerupIsActive + ", powerUpController.powerUpIsSpawned: " + powerUpController.powerUpIsSpawned);
+
+        if (powerUpUnit.gameObject.activeInHierarchy)
         {
-            int rnd2 = UnityEngine.Random.Range(1,21); // TODO: PowerUp spawn chance
-            if (rnd2 == 1)
+            powerUpUnit.DisablePowerUp();
+            powerUpUnit.gameObject.SetActive(false);
+            powerUpController.powerUpIsSpawned = false;
+        }
+        if (!powerUpController.powerupIsActive && !powerUpController.powerUpIsSpawned)
+        {
+            if (scoreCounter.score > 0 && !powerUpController.powerUpIsSpawned && !powerUpController.powerUpIsSpawned) // TODO: Set a score value after which powerups will spawn
             {
-                powerUpUnit.SetActive(true);
+                int rnd2 = UnityEngine.Random.Range(1, 21); // TODO: PowerUp spawn chance
+                if (rnd2 == 1)
+                {
+                    powerUpUnit.gameObject.SetActive(true);
+                }
             }
         }
     }

@@ -236,7 +236,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 10599094}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -441,7 +441,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105206247}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -952,6 +952,8 @@ MonoBehaviour:
   - {fileID: 222015091}
   - {fileID: 1648741278}
   - {fileID: 420523035}
+  powerupIsActive: 0
+  powerUpIsSpawned: 0
   powerUpSoundFX: {fileID: 149397732}
   bubbleSprite: {fileID: 1448400901}
 --- !u!114 &149397732
@@ -1587,7 +1589,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 222015089}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -2985,7 +2987,8 @@ MonoBehaviour:
   regularObstacle: {fileID: 984529266}
   movingObstacle: {fileID: 411264695}
   closingObstacle: {fileID: 1222333625}
-  powerUpUnit: {fileID: 1508245413}
+  powerUpUnit: {fileID: 1508245415}
+  powerUpController: {fileID: 149397731}
 --- !u!1 &439302008
 GameObject:
   m_ObjectHideFlags: 0
@@ -3387,6 +3390,7 @@ Transform:
   m_Children:
   - {fileID: 1131447404}
   - {fileID: 10599095}
+  - {fileID: 2117196888}
   m_Father: {fileID: 1634868928}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9045,6 +9049,7 @@ Transform:
   m_Children:
   - {fileID: 1375382607}
   - {fileID: 760944164}
+  - {fileID: 1184085778}
   m_Father: {fileID: 1698950970}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9089,7 +9094,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 610108716}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -10033,7 +10038,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 760944163}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -10358,7 +10363,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854072444}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9, y: -7, z: 0}
+  m_LocalPosition: {x: -0.9, y: -13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10366,7 +10371,6 @@ Transform:
   - {fileID: 1792436831}
   - {fileID: 412063907}
   - {fileID: 1654720663}
-  - {fileID: 1599028197}
   m_Father: {fileID: 209410348}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10390,7 +10394,8 @@ MonoBehaviour:
   regularObstacle: {fileID: 1792436830}
   movingObstacle: {fileID: 580786031}
   closingObstacle: {fileID: 412063906}
-  powerUpUnit: {fileID: 1599028196}
+  powerUpUnit: {fileID: 1599028198}
+  powerUpController: {fileID: 149397731}
 --- !u!1 &908528407
 GameObject:
   m_ObjectHideFlags: 0
@@ -10940,7 +10945,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1044687555
 Transform:
   m_ObjectHideFlags: 0
@@ -11314,7 +11319,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1131447403}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -11881,8 +11886,8 @@ Transform:
   m_Children:
   - {fileID: 372295120}
   - {fileID: 2009580968}
-  m_Father: {fileID: 1698950970}
-  m_RootOrder: 4
+  m_Father: {fileID: 599591866}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1184085779
 MonoBehaviour:
@@ -12352,7 +12357,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1239760402
@@ -13093,7 +13098,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375382606}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -13390,7 +13395,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1415045251}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -14320,8 +14325,9 @@ MonoBehaviour:
   gameResetter: {fileID: 611845204}
   opened: 1
   canMove: 1
+  openedMovementClamp: 1.9
+  closedMovementClamp: 2.6
   gyroMoveSpeed: 10
-  rb: {fileID: 0}
 --- !u!114 &1530587137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14340,6 +14346,7 @@ MonoBehaviour:
   closedUmbrella: {fileID: 420523032}
   animator: {fileID: 2111997499}
   openingSound: {fileID: 8316019}
+  colliderEnabler: {fileID: 2111997502}
 --- !u!50 &1530587139
 Rigidbody2D:
   serializedVersion: 4
@@ -14353,9 +14360,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 9.8
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -14706,8 +14713,8 @@ Transform:
   m_Children:
   - {fileID: 1203457231}
   - {fileID: 1471542603}
-  m_Father: {fileID: 854072445}
-  m_RootOrder: 4
+  m_Father: {fileID: 1792436831}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1599028198
 MonoBehaviour:
@@ -14832,7 +14839,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634868927}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.45, y: -4, z: 0}
+  m_LocalPosition: {x: 0.45, y: -8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14840,7 +14847,6 @@ Transform:
   - {fileID: 460064049}
   - {fileID: 1926775662}
   - {fileID: 179339944}
-  - {fileID: 2117196888}
   m_Father: {fileID: 209410348}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14864,7 +14870,8 @@ MonoBehaviour:
   regularObstacle: {fileID: 460064048}
   movingObstacle: {fileID: 644253124}
   closingObstacle: {fileID: 1926775661}
-  powerUpUnit: {fileID: 2117196887}
+  powerUpUnit: {fileID: 2117196889}
+  powerUpController: {fileID: 149397731}
 --- !u!1 &1635705925
 GameObject:
   m_ObjectHideFlags: 0
@@ -14987,7 +14994,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1648741276}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -16695,7 +16702,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1698950969}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: -1, z: 0}
+  m_LocalPosition: {x: -1, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16703,7 +16710,6 @@ Transform:
   - {fileID: 599591866}
   - {fileID: 1554873584}
   - {fileID: 1385461397}
-  - {fileID: 1184085778}
   m_Father: {fileID: 209410348}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16727,7 +16733,8 @@ MonoBehaviour:
   regularObstacle: {fileID: 599591865}
   movingObstacle: {fileID: 1642047376}
   closingObstacle: {fileID: 1554873583}
-  powerUpUnit: {fileID: 1184085777}
+  powerUpUnit: {fileID: 1184085779}
+  powerUpController: {fileID: 149397731}
 --- !u!1 &1702407769
 GameObject:
   m_ObjectHideFlags: 0
@@ -17034,7 +17041,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1768890665}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -17135,6 +17142,7 @@ Transform:
   m_Children:
   - {fileID: 1768890666}
   - {fileID: 105206248}
+  - {fileID: 1599028197}
   m_Father: {fileID: 854072445}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18258,6 +18266,7 @@ GameObject:
   - component: {fileID: 2111997501}
   - component: {fileID: 2111997500}
   - component: {fileID: 2111997499}
+  - component: {fileID: 2111997502}
   m_Layer: 6
   m_Name: spritesheet_0
   m_TagString: Untagged
@@ -18352,6 +18361,19 @@ Transform:
   m_Father: {fileID: 8316017}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2111997502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111997498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5e8e4f8771113e44b42da2f9e04812c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topUmbrellaCollider: {fileID: 222015091}
 --- !u!1 &2117196887
 GameObject:
   m_ObjectHideFlags: 0
@@ -18385,8 +18407,8 @@ Transform:
   m_Children:
   - {fileID: 931124735}
   - {fileID: 1094719431}
-  m_Father: {fileID: 1634868928}
-  m_RootOrder: 4
+  m_Father: {fileID: 460064049}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2117196889
 MonoBehaviour:

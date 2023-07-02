@@ -25,7 +25,6 @@ public class AudioVisualizerManager : MonoBehaviour
             elapsedTime = 0;
             OnPeakReachedAction();
             RaiseDoorSlammedEvent();
-            Debug.Log("AudioVisualizerManager triggered");
         }
     }
 

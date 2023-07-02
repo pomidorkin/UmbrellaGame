@@ -14,16 +14,21 @@ public class UmbrellaMovement : MonoBehaviour
     private bool movingRight = false;
     public bool canMove = true;
 
+    // Movement Clamp logic
+    [SerializeField] float openedMovementClamp = 1.9f;
+    [SerializeField] float closedMovementClamp = 2.6f;
+    private float maxPos;
+
 
 
     // Accelerometer variables
     float dirX;
     [SerializeField] float gyroMoveSpeed = 5f;
-    [SerializeField] Rigidbody2D rb;
 
     private void OnEnable()
     {
         gameResetter.OnGameReset += ResetMovement;
+        maxPos = openedMovementClamp;
     }
 
     private void OnDisable()
@@ -38,32 +43,44 @@ public class UmbrellaMovement : MonoBehaviour
         canMove = true;
     }
 
+    public void ChangeClampValues(bool isOpened)
+    {
+        if (isOpened)
+        {
+            maxPos = openedMovementClamp;
+        }
+        else
+        {
+            maxPos = closedMovementClamp;
+        }
+    }
+
     void Update()
     {
         if (canMove)
         {
             // Downward speed
-            if (opened)
+            /*if (opened)
             {
                 //gameObject.transform.position
                 transform.Translate(0, -openedSpeed * Time.deltaTime, 0);
-            }
+            }*/
 
             //Sideways movement
             // Buttons contoller
-            if (movingLeft && !movingRight && transform.position.x > -1.9f)
+            if (movingLeft && !movingRight && transform.position.x > -maxPos)
             {
                 transform.Translate(-sidewaysMovSpeed * Time.deltaTime, 0, 0);
             }
 
-            if (movingRight && !movingLeft && transform.position.x < 1.9f)
+            if (movingRight && !movingLeft && transform.position.x < maxPos)
             {
                 transform.Translate(sidewaysMovSpeed * Time.deltaTime, 0, 0);
             }
 
             //Gyroscope controller
             //dirX = Input.acceleration.x * gyroMoveSpeed;
-            //transform.Translate(Mathf.Clamp(dirX * Time.deltaTime, -5, 5), 0, 0); // TODO: chose correct clamp values. Current values are random
+            //transform.Translate(Mathf.Clamp(dirX * Time.deltaTime, -maxPos, maxPos), 0, 0); // TODO: chose correct clamp values. Current values are random
         }
     }
 
