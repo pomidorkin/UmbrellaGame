@@ -15,6 +15,7 @@ public class ScoreCounter : MonoBehaviour
 
     // UI
     [SerializeField] TMP_Text recordScoreText;
+    [SerializeField] TMP_Text menuScoreText;
     [SerializeField] TMP_Text scoreText;
     // Start is called before the first frame update
     private void OnEnable()
@@ -29,12 +30,13 @@ public class ScoreCounter : MonoBehaviour
     void Start()
     {
         lastPosition = umbrellaMovement.transform.position;
+        scoreText.text = "Score: " + score.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (timer < 0.2f)
+        /*if (timer < 0.2f)
         {
             timer += Time.deltaTime;
         }
@@ -47,7 +49,13 @@ public class ScoreCounter : MonoBehaviour
                 score += 5;
                 Debug.Log("Score: " + score);
             }
-        }
+        }*/
+    }
+
+    public void AddScore()
+    {
+        score++;
+        scoreText.text = "Score: " + score.ToString();
     }
 
     public void UpdateHighScore()
@@ -58,7 +66,7 @@ public class ScoreCounter : MonoBehaviour
             SaveManager.Instance.Save();
         }
         recordScoreText.text = "Your Record: " + savingHandler.saveManager.State.highScore;
-        scoreText.text = "Your Score: " + score;
+        menuScoreText.text = "Your Score: " + score;
         Debug.Log("Record: " + savingHandler.saveManager.State.highScore + ", current score: " + score);
     }
 

@@ -28,4 +28,9 @@ public class MenuController : MonoBehaviour
     {
         pauseMenu.SetActive(false);
     }
+
+    public void QuintGame()
+    {
+        Application.Quit();
+    }
 }

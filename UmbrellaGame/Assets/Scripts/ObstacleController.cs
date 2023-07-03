@@ -65,7 +65,8 @@ public class ObstacleController : MonoBehaviour
         // Obstacle position change & hole decreasing logic
         float rnd = UnityEngine.Random.Range(-obstacleOffset + 0.7f, obstacleOffset - 0.7f);
         transform.position = new Vector3(rnd, transform.localPosition.y - 20f, 0);
-        if ((lastScore + 20) < scoreCounter.score)
+        scoreCounter.AddScore();
+        if ((lastScore + 5) < scoreCounter.score) // Every 5 platforms the hole size decreases
         {
             lastScore = scoreCounter.score;
             Debug.Log("rightPlatform.transform.position.x: " + rightPlatform.transform.localPosition.x + ", maxHoleSize: " + maxHoleSize);
@@ -84,7 +85,7 @@ public class ObstacleController : MonoBehaviour
 
         // Obstacle type choosing logic
 
-        if (scoreCounter.score > 60) // Balance Value
+        if (scoreCounter.score > 15) // Balance Value
         {
             int rand = UnityEngine.Random.Range(1, 11);
             if (rand == 1)
