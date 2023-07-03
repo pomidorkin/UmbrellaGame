@@ -6,6 +6,7 @@ public class MenuController : MonoBehaviour
 {
     [SerializeField] GameObject settingsMenu;
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] RadioButtonSystem radioButtonSystem;
 
     public void OpenSettingsMenu()
     {
@@ -15,6 +16,7 @@ public class MenuController : MonoBehaviour
     public void CloseSettingsMenu()
     {
         settingsMenu.SetActive(false);
+        radioButtonSystem.Submit();
     }
 
     public void OpenPauseMenu()

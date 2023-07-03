@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class UmbrellaSpriteController : MonoBehaviour
 {
+    [SerializeField] GameResetter gameResetter;
+    private void OnEnable()
+    {
+        gameResetter.OnGameReset += RotateStraight;
+    }
+
+    private void OnDisable()
+    {
+        gameResetter.OnGameReset -= RotateStraight;
+    }
     public void RotateLeft()
     {
         iTween.RotateTo(gameObject, iTween.Hash("z", 5, "time", 1));

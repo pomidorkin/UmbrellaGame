@@ -20,6 +20,7 @@ public class UmbrellaMovement : MonoBehaviour
     private float maxPos;
     [SerializeField] private float joystickMoveSpeed = 2f;
     [SerializeField] private Joystick joystick;
+    public int controlId = 0;
 
 
 
@@ -61,46 +62,46 @@ public class UmbrellaMovement : MonoBehaviour
     {
         if (canMove)
         {
-            // Downward speed
-            /*if (opened)
-            {
-                //gameObject.transform.position
-                transform.Translate(0, -openedSpeed * Time.deltaTime, 0);
-            }*/
-
             //Sideways movement
-            // Buttons contoller
-            /* if (movingLeft && !movingRight && transform.position.x > -maxPos)
-             {
-                 transform.Translate(-sidewaysMovSpeed * Time.deltaTime, 0, 0);
-             }
-
-             if (movingRight && !movingLeft && transform.position.x < maxPos)
-             {
-                 transform.Translate(sidewaysMovSpeed * Time.deltaTime, 0, 0);
-             }*/
-
-            //Gyroscope controller
-            //dirX = Input.acceleration.x * gyroMoveSpeed;
-            //transform.Translate(Mathf.Clamp(dirX * Time.deltaTime, -maxPos, maxPos), 0, 0); // TODO: chose correct clamp values. Current values are random
 
             // Joystick contoller
-            float direction = joystick.Horizontal * joystickMoveSpeed * Time.deltaTime;
-            Debug.Log("joystick.Horizontal: " + joystick.Horizontal);
-            if (joystick.Horizontal < 0)
+            if (controlId == 1)
             {
-                MoveLeft();
+                float direction = joystick.Horizontal * joystickMoveSpeed * Time.deltaTime;
+                Debug.Log("joystick.Horizontal: " + joystick.Horizontal);
+                if (joystick.Horizontal < 0)
+                {
+                    MoveLeft();
+                }
+                else if (joystick.Horizontal > 0)
+                {
+                    MoveRight();
+                }
+                else
+                {
+                    StopMovingSideways();
+                }
+                transform.Translate(Mathf.Clamp(direction, -maxPos, maxPos), 0, 0);
             }
-            else if (joystick.Horizontal > 0)
+            else if (controlId == 2)
             {
-                MoveRight();
-            }
-            else
-            {
-                StopMovingSideways();
-            }
-            transform.Translate(Mathf.Clamp(direction, -maxPos, maxPos), 0, 0);
+                // Buttons contoller
+                if (movingLeft && !movingRight && transform.position.x > -maxPos)
+                {
+                    transform.Translate(-sidewaysMovSpeed * Time.deltaTime, 0, 0);
+                }
 
+                if (movingRight && !movingLeft && transform.position.x < maxPos)
+                {
+                    transform.Translate(sidewaysMovSpeed * Time.deltaTime, 0, 0);
+                }
+            }
+            else if (controlId == 3)
+            {
+                //Gyroscope controller
+                dirX = Input.acceleration.x * gyroMoveSpeed;
+                transform.Translate(Mathf.Clamp(dirX * Time.deltaTime, -maxPos, maxPos), 0, 0); // TODO: chose correct clamp values. Current values are random
+            }
         }
     }
 

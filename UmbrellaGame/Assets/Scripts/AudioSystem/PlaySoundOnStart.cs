@@ -8,6 +8,7 @@ public class PlaySoundOnStart : MonoBehaviour
 
     public void PlaySound()
     {
-        SoundManager.Instance.PlaySound(_clip);
+        //SoundManager.Instance.PlaySound(_clip);
+        SoundManager.Instance.PlaySoundAaptiveVolume(_clip, 0.3f);
     }
 }

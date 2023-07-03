@@ -12,4 +12,5 @@ public class SavingData
     public float soundsVolume = 1f;
     public float musicVolume = 1f;
     public int timesDied = 0;
+    public int controlId = 1;
 }

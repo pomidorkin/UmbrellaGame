@@ -48,9 +48,9 @@ public class ObstacleController : MonoBehaviour
 
     private void Start()
     {
-        initialObstaclePos = gameObject.transform.position;
-        initialLeftPlatforPos = leftPlatform.transform.position;
-        initialRightPlatforPos = rightPlatform.transform.position;
+        initialObstaclePos = gameObject.transform.localPosition;
+        initialLeftPlatforPos = leftPlatform.transform.localPosition;
+        initialRightPlatforPos = rightPlatform.transform.localPosition;
     }
     void Update()
     {
@@ -75,6 +75,11 @@ public class ObstacleController : MonoBehaviour
                 leftPlatform.transform.localPosition = new Vector2(leftPlatform.transform.localPosition.x + sidesOffset, leftPlatform.transform.localPosition.y);
                 obstacleOffset += sidesOffset;
             }
+            
+        }
+        if (!regularObstacle.gameObject.activeInHierarchy)
+        {
+            regularObstacle.SetActive(true);
         }
 
         // Obstacle type choosing logic
