@@ -15,7 +15,7 @@ public class UmbrellaController : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] PlaySoundOnStart openingSound;
     [SerializeField] ColliderEnabler colliderEnabler;
-    private Vector2 initialPos;
+    private Vector3 initialPos;
 
     private void OnEnable()
     {
