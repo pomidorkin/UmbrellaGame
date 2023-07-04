@@ -24863,6 +24863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   topUmbrellaCollider: {fileID: 222015091}
+  powerUpController: {fileID: 149397731}
 --- !u!1 &2117196887
 GameObject:
   m_ObjectHideFlags: 0

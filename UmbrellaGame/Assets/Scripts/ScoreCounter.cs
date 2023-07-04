@@ -11,7 +11,6 @@ public class ScoreCounter : MonoBehaviour
     [SerializeField] SavingHandler savingHandler;
     private Vector2 lastPosition;
     public int score = 0;
-    private float timer = 0;
 
     // UI
     [SerializeField] TMP_Text recordScoreText;
@@ -31,25 +30,6 @@ public class ScoreCounter : MonoBehaviour
     {
         lastPosition = umbrellaMovement.transform.position;
         scoreText.text = "Score: " + score.ToString();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        /*if (timer < 0.2f)
-        {
-            timer += Time.deltaTime;
-        }
-        else
-        {
-            timer = 0;
-            if (umbrellaMovement.transform.position.y < (lastPosition.y - 10f))
-            {
-                lastPosition = umbrellaMovement.transform.position;
-                score += 5;
-                Debug.Log("Score: " + score);
-            }
-        }*/
     }
 
     public void AddScore()
@@ -74,6 +54,6 @@ public class ScoreCounter : MonoBehaviour
     {
         UpdateHighScore();
         score = 0;
-        timer = 0;
+        scoreText.text = "Score: " + score.ToString();
     }
 }

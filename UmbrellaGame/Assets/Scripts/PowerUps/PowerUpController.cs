@@ -10,6 +10,7 @@ public class PowerUpController : MonoBehaviour
     public bool powerUpIsSpawned = false;
     [SerializeField] PlayPowerUpFX powerUpSoundFX;
     [SerializeField] GameObject bubbleSprite;
+    private bool isInvulnerable = false;
 
     public void ActivateBubble()
     {
@@ -25,6 +26,7 @@ public class PowerUpController : MonoBehaviour
             powerUpSoundFX.PlayBubbleSound();
             powerupIsActive = true;
             StartCoroutine(EnableCollidersCoroutine());
+            isInvulnerable = true;
         }
     }
 
@@ -38,6 +40,12 @@ public class PowerUpController : MonoBehaviour
         powerUpSoundFX.PlayBubbleSound();
         powerupIsActive = false;
         bubbleSprite.SetActive(false);
+        isInvulnerable = false;
+    }
+
+    public bool GetIsInvulnerable()
+    {
+        return isInvulnerable;
     }
 
     public void ActivateTimeSlower()

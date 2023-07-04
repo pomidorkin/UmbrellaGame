@@ -3853,6 +3853,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c8ad13b70769e743af0487e0abbdfd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  degrees: 15
+  animTime: 2
 --- !u!114 &1549046431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4142,8 +4144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicVulomeSetter: {fileID: 228387357}
-  musicSlider: {fileID: 5367609428044730333}
-  effectsSlider: {fileID: 5367609430033975334}
+  musicSlider: {fileID: 5367609430033975334}
+  effectsSlider: {fileID: 5367609428044730333}
 --- !u!1 &1732504879
 GameObject:
   m_ObjectHideFlags: 0

@@ -47,6 +47,9 @@ public class ObstacleController : MonoBehaviour
         rightPlatform.transform.localPosition = initialRightPlatforPos;
         obstacleOffset = 1.4f;
         lastScore = 0;
+        regularObstacle.SetActive(true);
+        closingObstacle.SetActive(false);
+        movingObstacle.SetActive(false);
     }
 
     private void Start()
