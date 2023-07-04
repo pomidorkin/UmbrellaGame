@@ -17,6 +17,10 @@ public class UmbrellaController : MonoBehaviour
     [SerializeField] ColliderEnabler colliderEnabler;
     private Vector3 initialPos;
 
+    // Buttons Images
+    [SerializeField] GameObject[] umbrellaOpenedImages;
+    [SerializeField] GameObject[] umbrellaClosedImages;
+
     private void OnEnable()
     {
         gameResetter.OnGameReset += ResetUmbrellaPosition;
@@ -41,6 +45,7 @@ public class UmbrellaController : MonoBehaviour
             closedUmbrella.SetActive(true);
             animator.Play("ClosingAnim");
             umbrellaMovement.ChangeClampValues(false);
+            SetButtonImageToClosed(true);
         }
         else
         {
@@ -53,8 +58,21 @@ public class UmbrellaController : MonoBehaviour
             animator.Play("OpeningAnim");
             umbrellaMovement.ChangeClampValues(true);
             openingSound.PlaySound();
+            SetButtonImageToClosed(false);
         }
         umbrellaMovement.opened = !umbrellaMovement.opened;
+    }
+
+    private void SetButtonImageToClosed(bool val)
+    {
+        foreach (GameObject image in umbrellaOpenedImages)
+        {
+            image.SetActive(val);
+        }
+        foreach (GameObject image in umbrellaClosedImages)
+        {
+            image.SetActive(!val);
+        }
     }
 
     public void ResetUmbrellaPosition()
@@ -67,6 +85,7 @@ public class UmbrellaController : MonoBehaviour
         umbrellaMovement.opened = true;
         openedUmbrella.SetActive(true);
         closedUmbrella.SetActive(false);
+        SetButtonImageToClosed(false);
     }
 
     public void DisableMovement()

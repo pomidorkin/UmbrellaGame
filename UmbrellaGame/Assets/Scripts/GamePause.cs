@@ -10,6 +10,7 @@ public class GamePause : MonoBehaviour
     [SerializeField] UmbrellaMovement umbrellaMovement;
     [SerializeField] UmbrellaController umbrellaController;
     [SerializeField] Button[] buttons;
+    [SerializeField] Joystick joystick;
     [SerializeField] ScoreCounter scoreCounter;
     [SerializeField] InterAd interAd;
     public static bool gameIsPaused = false;
@@ -33,6 +34,7 @@ public class GamePause : MonoBehaviour
         {
             button.interactable = false;
         }
+        joystick.enabled = false;
         umbrellaMovement.DisableMovement();
         umbrellaController.DisableMovement();
         StartCoroutine(OpenGameLostMenuCoroutine());
@@ -44,6 +46,7 @@ public class GamePause : MonoBehaviour
         {
             button.interactable = true;
         }
+        joystick.enabled = true;
         umbrellaMovement.EnableMovement();
         umbrellaController.EnableMovement();
         gameLostMenu.SetActive(false);
@@ -70,6 +73,7 @@ public class GamePause : MonoBehaviour
         {
             button.interactable = true;
         }
+        joystick.enabled = true;
     }
 
     public void PlayInterAd()
