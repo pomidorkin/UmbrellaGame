@@ -27,6 +27,9 @@ public class ObstacleController : MonoBehaviour
     // PowerUp variables
     [SerializeField] PowerUpUnit powerUpUnit;
     [SerializeField] PowerUpController powerUpController;
+
+    // Decorations
+    [SerializeField] DecorationsController decorationsController;
     private void OnEnable()
     {
         gameResetter.OnGameReset += ResetObstacle;
@@ -54,7 +57,7 @@ public class ObstacleController : MonoBehaviour
     }
     void Update()
     {
-        if (transform.position.y > (umbrella.transform.position.y + 1.7f))
+        if (transform.position.y > (umbrella.transform.position.y + 3.3f))
         {
             ObstacleRearrange();
         }
@@ -64,7 +67,9 @@ public class ObstacleController : MonoBehaviour
     {
         // Obstacle position change & hole decreasing logic
         float rnd = UnityEngine.Random.Range(-obstacleOffset + 0.7f, obstacleOffset - 0.7f);
-        transform.position = new Vector3(rnd, transform.localPosition.y - 20f, 0);
+        //transform.position = new Vector3(rnd, transform.localPosition.y - 20f, transform.localPosition.z);
+        //transform.position = new Vector2(rnd, transform.localPosition.y - 20f);
+        transform.localPosition = new Vector2(rnd, transform.localPosition.y - 20f);
         scoreCounter.AddScore();
         if ((lastScore + 5) < scoreCounter.score) // Every 5 platforms the hole size decreases
         {
@@ -82,6 +87,9 @@ public class ObstacleController : MonoBehaviour
         {
             regularObstacle.SetActive(true);
         }
+
+        // Activate Random Decoration
+        decorationsController.ActivateRandomDecoration();
 
         // Obstacle type choosing logic
 

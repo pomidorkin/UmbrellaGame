@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class UIItweenAnimator : MonoBehaviour
 {
+    [SerializeField] float degrees = 15;
+    [SerializeField] float animTime = 2;
     void Start()
     {
-        iTween.RotateTo(gameObject, iTween.Hash("z", 15, "time", 2, "islocal", true, "looptype", "pingpong", "easetype", iTween.EaseType.easeInOutQuad));
+        iTween.RotateTo(gameObject, iTween.Hash("z", degrees, "time", animTime, "islocal", true, "looptype", "pingpong", "easetype", iTween.EaseType.easeInOutQuad));
     }
 }

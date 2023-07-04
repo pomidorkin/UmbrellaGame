@@ -22,6 +22,7 @@ public class PowerUpController : MonoBehaviour
             {
                 collider.enabled = false;
             }
+            powerUpSoundFX.PlayBubbleSound();
             powerupIsActive = true;
             StartCoroutine(EnableCollidersCoroutine());
         }
@@ -34,6 +35,7 @@ public class PowerUpController : MonoBehaviour
         {
             collider.enabled = true;
         }
+        powerUpSoundFX.PlayBubbleSound();
         powerupIsActive = false;
         bubbleSprite.SetActive(false);
     }

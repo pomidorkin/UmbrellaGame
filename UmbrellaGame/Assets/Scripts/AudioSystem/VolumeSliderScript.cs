@@ -18,6 +18,16 @@ public class VolumeSliderScript : MonoBehaviour
     {
         SoundManager.Instance.ChangeEffectsVolume(_effectsVolumeSlider.value);
         SoundManager.Instance.ChangeMusicVolume(_musicVolumeSlider.value);
+        if (_effectsVolumeSlider.value <= 0)
+        {
+            effectsMuteIcon.SetActive(true);
+            effectsLoudIcon.SetActive(false);
+        }
+        if (_musicVolumeSlider.value <= 0)
+        {
+            musicMuteIcon.SetActive(true);
+            musicLoudIcon.SetActive(false);
+        }
         //_effectsVolumeSlider.onValueChanged.AddListener(val => SoundManager.Instance.ChangeEffectsVolume(val));
         //_musicVolumeSlider.onValueChanged.AddListener(val => SoundManager.Instance.ChangeMusicVolume(val));
         _effectsVolumeSlider.onValueChanged.AddListener(delegate { EffectsValueChangeCheck(); });
