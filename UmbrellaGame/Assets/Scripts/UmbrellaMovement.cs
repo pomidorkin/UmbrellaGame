@@ -68,7 +68,6 @@ public class UmbrellaMovement : MonoBehaviour
             if (controlId == 1)
             {
                 float direction = joystick.Horizontal * joystickMoveSpeed * Time.deltaTime;
-                Debug.Log("joystick.Horizontal: " + joystick.Horizontal);
                 if (joystick.Horizontal < 0)
                 {
                     MoveLeft();
@@ -99,8 +98,20 @@ public class UmbrellaMovement : MonoBehaviour
             else if (controlId == 3)
             {
                 //Gyroscope controller
-                dirX = Input.acceleration.x * gyroMoveSpeed;
-                transform.Translate(Mathf.Clamp(dirX * Time.deltaTime, -maxPos, maxPos), 0, 0); // TODO: chose correct clamp values. Current values are random
+                dirX = Input.acceleration.x * gyroMoveSpeed * Time.deltaTime;
+                if (Input.acceleration.x < 0)
+                {
+                    MoveLeft();
+                }
+                else if (Input.acceleration.x > 0)
+                {
+                    MoveRight();
+                }
+                else
+                {
+                    StopMovingSideways();
+                }
+                transform.Translate(Mathf.Clamp(dirX, -maxPos, maxPos), 0, 0); // TODO: chose correct clamp values. Current values are random
             }
         }
     }

@@ -10,7 +10,7 @@ public class ObstacleController : MonoBehaviour
     [SerializeField] GameObject leftPlatform;
     [SerializeField] GameObject rightPlatform;
     private float obstacleOffset = 1.4f;
-    private float sidesOffset = 0.2f;
+    private float sidesOffset = 0.1f;
     private int lastScore = 0;
     // Initil Data for Resetting
     [SerializeField] GameResetter gameResetter;
@@ -132,7 +132,7 @@ public class ObstacleController : MonoBehaviour
         }
         if (!powerUpController.powerupIsActive && !powerUpController.powerUpIsSpawned)
         {
-            if (scoreCounter.score > 0 && !powerUpController.powerUpIsSpawned && !powerUpController.powerUpIsSpawned) // TODO: Set a score value after which powerups will spawn
+            if (scoreCounter.score > 15 && !powerUpController.powerUpIsSpawned && !powerUpController.powerUpIsSpawned) // TODO: Set a score value after which powerups will spawn
             {
                 int rnd2 = UnityEngine.Random.Range(1, 21); // TODO: PowerUp spawn chance
                 if (rnd2 == 1)
