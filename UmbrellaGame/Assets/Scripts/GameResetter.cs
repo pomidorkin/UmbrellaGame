@@ -10,7 +10,7 @@ public class GameResetter : MonoBehaviour
     public event ResetGame OnGameReset;
 
     // Variables for continuing
-    [SerializeField] BoxCollider2D[] umbrellaColliders;
+    [SerializeField] Collider2D[] umbrellaColliders;
     [SerializeField] GamePause pauseController;
     [SerializeField] RewardedAdController rewardedAdController;
 
@@ -23,7 +23,7 @@ public class GameResetter : MonoBehaviour
 
     public void ContinuePlaying()
     {
-        foreach (BoxCollider2D collider in umbrellaColliders)
+        foreach (Collider2D collider in umbrellaColliders)
         {
             collider.enabled = false;
         }
@@ -37,7 +37,7 @@ public class GameResetter : MonoBehaviour
     private IEnumerator EnableCollidersCoroutine()
     {
         yield return new WaitForSeconds(3f);
-        foreach (BoxCollider2D collider in umbrellaColliders)
+        foreach (Collider2D collider in umbrellaColliders)
         {
             collider.enabled = true;
         }

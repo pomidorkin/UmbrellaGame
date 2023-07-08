@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ColliderEnabler : MonoBehaviour
 {
-    [SerializeField] BoxCollider2D topUmbrellaCollider;
+    [SerializeField] Collider2D topUmbrellaCollider;
     [SerializeField] PowerUpController powerUpController;
 
     public void EnableCollider()

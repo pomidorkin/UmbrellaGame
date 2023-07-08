@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PowerUpController : MonoBehaviour
 {
-    [SerializeField] BoxCollider2D[] umbrellaColliders;
+    [SerializeField] Collider2D[] umbrellaColliders;
     public bool powerupIsActive = false;
     public bool powerUpIsSpawned = false;
     [SerializeField] PlayPowerUpFX powerUpSoundFX;
@@ -19,7 +19,7 @@ public class PowerUpController : MonoBehaviour
             // TODO: Play pick up audio effect
             // Work with sprites
             bubbleSprite.SetActive(true);
-            foreach (BoxCollider2D collider in umbrellaColliders)
+            foreach (Collider2D collider in umbrellaColliders)
             {
                 collider.enabled = false;
             }
@@ -33,7 +33,7 @@ public class PowerUpController : MonoBehaviour
     private IEnumerator EnableCollidersCoroutine()
     {
         yield return new WaitForSeconds(5f);
-        foreach (BoxCollider2D collider in umbrellaColliders)
+        foreach (Collider2D collider in umbrellaColliders)
         {
             collider.enabled = true;
         }
